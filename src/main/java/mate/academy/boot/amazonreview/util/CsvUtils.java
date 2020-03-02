@@ -8,10 +8,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class CsvUtils {
-    private static final CsvMapper mapper = new CsvMapper();
+import org.springframework.stereotype.Component;
 
-    public static <T> List<T> read(Class<T> clazz, File file) throws IOException {
+@Component
+public class CsvUtils {
+    public <T> List<T> read(Class<T> clazz, File file) throws IOException {
+        CsvMapper mapper = new CsvMapper();
         CsvSchema schema = CsvSchema.builder()
                 .addColumn("id")
                 .addColumn("productId")
