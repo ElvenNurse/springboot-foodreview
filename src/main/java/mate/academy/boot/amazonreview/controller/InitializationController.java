@@ -9,6 +9,7 @@ import java.util.List;
 import mate.academy.boot.amazonreview.entity.Review;
 import mate.academy.boot.amazonreview.entity.ReviewRequestDto;
 import mate.academy.boot.amazonreview.entity.ReviewRequestDtoMapper;
+import mate.academy.boot.amazonreview.service.FileService;
 import mate.academy.boot.amazonreview.service.ReviewService;
 import mate.academy.boot.amazonreview.util.CsvUtils;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +17,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -26,13 +26,16 @@ public class InitializationController {
     private ReviewService reviewService;
     private CsvUtils csvUtils;
     private ReviewRequestDtoMapper requestDtoMapper;
+    private FileService fileService;
 
     @Autowired
     public InitializationController(ReviewService reviewService, CsvUtils csvUtils,
-                                    ReviewRequestDtoMapper requestDtoMapper) {
+                                    ReviewRequestDtoMapper requestDtoMapper,
+                                    FileService fileService) {
         this.reviewService = reviewService;
         this.csvUtils = csvUtils;
         this.requestDtoMapper = requestDtoMapper;
+        this.fileService = fileService;
     }
 
     @EventListener
@@ -40,7 +43,7 @@ public class InitializationController {
         try {
             LocalDateTime now = LocalDateTime.now();
             logger.info("Start reading from file");
-            File file = new ClassPathResource("Reviews.csv").getFile();
+            File file = fileService.getInitFile();
             List<ReviewRequestDto> dtoList = csvUtils.read(ReviewRequestDto.class, file);
             logger.info("Successfully read data from file!");
             logger.debug("Time spent for reading in seconds "
