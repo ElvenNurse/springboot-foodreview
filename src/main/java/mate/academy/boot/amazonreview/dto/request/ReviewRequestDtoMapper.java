@@ -1,9 +1,10 @@
-package mate.academy.boot.amazonreview.entity;
+package mate.academy.boot.amazonreview.dto.request;
 
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import mate.academy.boot.amazonreview.entity.Review;
 import org.springframework.stereotype.Component;
 
 @Component

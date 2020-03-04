@@ -1,4 +1,4 @@
-package mate.academy.boot.amazonreview.service;
+package mate.academy.boot.amazonreview.service.impl;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 
+import mate.academy.boot.amazonreview.service.FileService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.core.io.ClassPathResource;
