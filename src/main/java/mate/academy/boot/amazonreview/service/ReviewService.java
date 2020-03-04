@@ -7,7 +7,6 @@ import mate.academy.boot.amazonreview.dto.response.UserResponseDto;
 import mate.academy.boot.amazonreview.dto.response.WordResponseDto;
 import mate.academy.boot.amazonreview.entity.Review;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.jpa.repository.Query;
 
 public interface ReviewService {
     List<Review> saveAll(List<Review> reviews);

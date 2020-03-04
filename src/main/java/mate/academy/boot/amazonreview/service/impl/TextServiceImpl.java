@@ -24,7 +24,8 @@ public class TextServiceImpl implements TextService {
     }
 
     @Override
-    public List<WordResponseDto> getMostUsedWords(List<String> reviews, Integer page, Integer limit) {
+    public List<WordResponseDto> getMostUsedWords(List<String> reviews,
+                                                  Integer page, Integer limit) {
         List<String> separatedWords = new ArrayList<>();
         for (String review : reviews) {
             String[] reviewWords = cleanString(review).split(" ");
