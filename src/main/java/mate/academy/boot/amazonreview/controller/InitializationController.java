@@ -35,7 +35,8 @@ public class InitializationController {
     @Autowired
     public InitializationController(ReviewService reviewService, CsvUtils csvUtils,
                                     ReviewRequestDtoMapper requestDtoMapper,
-                                    FileService fileService, UserService userService, PasswordEncoder passwordEncoder) {
+                                    FileService fileService, UserService userService,
+                                    PasswordEncoder passwordEncoder) {
         this.reviewService = reviewService;
         this.csvUtils = csvUtils;
         this.requestDtoMapper = requestDtoMapper;
