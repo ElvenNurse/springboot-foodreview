@@ -1,4 +1,4 @@
-package mate.academy.boot.amazonreview.entity;
+package mate.academy.boot.amazonreview.dto.request;
 
 import lombok.Data;
 
