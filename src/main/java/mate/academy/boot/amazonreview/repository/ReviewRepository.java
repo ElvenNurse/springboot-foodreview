@@ -2,7 +2,7 @@ package mate.academy.boot.amazonreview.repository;
 
 import java.util.List;
 import mate.academy.boot.amazonreview.dto.response.ProductResponseDto;
-import mate.academy.boot.amazonreview.dto.response.UserResponseDto;
+import mate.academy.boot.amazonreview.dto.response.ReviewUserResponseDto;
 import mate.academy.boot.amazonreview.entity.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,10 +11,10 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ReviewRepository extends JpaRepository<Review, Long> {
     @Query("SELECT "
-            + "new mate.academy.boot.amazonreview.dto.response.UserResponseDto("
+            + "new mate.academy.boot.amazonreview.dto.response.ReviewUserResponseDto("
             + "r.userId, r.profileName, COUNT(r.userId)) "
             + "FROM Review r GROUP BY r.userId, r.profileName ORDER BY COUNT(r.userId) DESC")
-    Page<UserResponseDto> getMostActiveUsers(Pageable pageable);
+    Page<ReviewUserResponseDto> getMostActiveUsers(Pageable pageable);
 
     @Query("SELECT "
             + "new mate.academy.boot.amazonreview.dto.response.ProductResponseDto("

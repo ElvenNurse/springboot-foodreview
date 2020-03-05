@@ -4,7 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import java.util.List;
 import mate.academy.boot.amazonreview.dto.response.ProductResponseDto;
-import mate.academy.boot.amazonreview.dto.response.UserResponseDto;
+import mate.academy.boot.amazonreview.dto.response.ReviewUserResponseDto;
 import mate.academy.boot.amazonreview.dto.response.WordResponseDto;
 import mate.academy.boot.amazonreview.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class ReviewController {
     @GetMapping("/top-users")
     @ApiOperation(value = "Get most active users",
             notes = "Gets 1000 users with most reviews count. Uses pagination.")
-    public List<UserResponseDto> getTopUsers(
+    public List<ReviewUserResponseDto> getTopUsers(
             @ApiParam(value = "Set the page number")
             @RequestParam(name = "page", defaultValue = "0") Integer page,
             @ApiParam(value = "Set the limit of results per page")
