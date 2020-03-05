@@ -1,7 +1,6 @@
 package mate.academy.boot.amazonreview.service.impl;
 
 import java.util.List;
-
 import mate.academy.boot.amazonreview.dto.response.ProductResponseDto;
 import mate.academy.boot.amazonreview.dto.response.UserResponseDto;
 import mate.academy.boot.amazonreview.dto.response.WordResponseDto;

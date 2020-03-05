@@ -6,10 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-
 import mate.academy.boot.amazonreview.service.FileService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -17,18 +17,19 @@ import org.springframework.stereotype.Service;
 public class FileServiceImpl implements FileService {
     private final Logger logger = LogManager.getLogger(FileServiceImpl.class);
 
-    private static final String  INIT_FILE_NAME = "Reviews.csv";
-    private static final String INIT_FILE_URL =
-            "https://spring-boot-aws-revievers.s3.eu-central-1.amazonaws.com/Reviews.csv";
+    @Value("${data.file.name}")
+    private String initFileName;
+    @Value("${data.file.url}")
+    private String initFileUrl;
 
     @Override
     public File getInitFile() {
         try {
-            return new ClassPathResource(INIT_FILE_NAME).getFile();
+            return new ClassPathResource(initFileName).getFile();
         } catch (FileNotFoundException e) {
-            String outputPath = "src/main/resources/" + INIT_FILE_NAME;
+            String outputPath = "src/main/resources/" + initFileName;
             logger.info("File not found! Start downloading file from web!");
-            downloadFile(INIT_FILE_URL, outputPath);
+            downloadFile(initFileUrl, outputPath);
             logger.info("Successfully download file!");
             return new File(outputPath);
         } catch (IOException e) {

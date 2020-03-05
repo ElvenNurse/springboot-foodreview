@@ -1,7 +1,6 @@
 package mate.academy.boot.amazonreview.dto.response;
 
 import java.util.Map;
-
 import org.springframework.stereotype.Component;
 
 @Component
