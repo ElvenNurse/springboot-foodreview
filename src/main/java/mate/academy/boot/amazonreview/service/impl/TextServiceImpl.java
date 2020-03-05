@@ -7,7 +7,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import mate.academy.boot.amazonreview.dto.response.WordResponseDto;
 import mate.academy.boot.amazonreview.dto.response.WordResponseDtoMapper;
 import mate.academy.boot.amazonreview.service.TextService;
