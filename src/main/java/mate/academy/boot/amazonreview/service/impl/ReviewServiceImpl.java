@@ -2,7 +2,7 @@ package mate.academy.boot.amazonreview.service.impl;
 
 import java.util.List;
 import mate.academy.boot.amazonreview.dto.response.ProductResponseDto;
-import mate.academy.boot.amazonreview.dto.response.UserResponseDto;
+import mate.academy.boot.amazonreview.dto.response.ReviewUserResponseDto;
 import mate.academy.boot.amazonreview.dto.response.WordResponseDto;
 import mate.academy.boot.amazonreview.entity.Review;
 import mate.academy.boot.amazonreview.repository.ReviewRepository;
@@ -29,7 +29,7 @@ public class ReviewServiceImpl implements ReviewService {
     }
 
     @Override
-    public List<UserResponseDto> getMostActiveUsers(PageRequest pageRequest) {
+    public List<ReviewUserResponseDto> getMostActiveUsers(PageRequest pageRequest) {
         return reviewRepository.getMostActiveUsers(pageRequest).getContent();
     }
 
