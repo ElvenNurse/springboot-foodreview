@@ -32,7 +32,8 @@ public class AuthenticationController {
 
     @PostMapping("/authenticate")
     @ApiOperation(value = "Get JWT token",
-            notes = "Generate and returns JWT token")
+            notes = "Generate and returns JWT token",
+            response = AuthenticationResponseDto.class)
     public ResponseEntity<?> createAuthenticationToken(
             @RequestBody @Valid AuthenticationRequestDto authenticationRequest) {
         try {

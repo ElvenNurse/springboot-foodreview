@@ -64,6 +64,11 @@ Use **GET** method, also pagination available.
 Use parameters "**page**" and "**limit**", for example:<br>
 <a href="http://localhost:8080/reviews/top-users?page=3&limit=10">localhost:8080/reviews/top-users?page=3&limit=10</a>
 
+### Swagger
+
+Swagger available at url:
+<a href="http://localhost:8080/swagger-ui.html">localhost:8080/swagger-ui.html</a>
+
 ## Technology stack
 
 Java 11, Spring Boot, Spring WebMVC, Spring Data, Spring Security, JWT, Swagger, H2 DB, Jackson CSV
